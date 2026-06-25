@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+ <link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="stylemain.css">
+</head>
+<body>
+</div>
+
+      <header class="header-f1">
+
+  <!-- LOGO (botão do menu) -->
+  <div class="f1-logo" id="menuTogglef1">
+    <img src="logos/F1-logo.png" alt="Equipe">
+  </div>
+
+  <!-- MENU LATERAL -->
+  <nav class="side-menu-f1" id="sideMenuf1">
+    
+    <div class="close-menu-f1" id="closeMenuf1">✕</div>
+    
+    <ul>
+      <li><a href="#calendario">Fim de Semana</a></li>
+      <li><a href="#quali">Classificação</a></li>
+      <li><a href="#pontos">Pontuação</a></li>
+      <li><a href="pneus">Pneus</a></li>
+      <li><a href="#temporada">Calendario da Temporada</a></li>
+      <li><a href="#bandeiras">Bandeiras</a></li>
+      <li><a href="#sc">Safaty Cars</a></li>
+      <li><a href="#penalti">Penalidades</a></li>
+    </ul>
+  </nav>
+
+  <!-- OVERLAY -->
+  <div class="overlay-f1" id="overlayf1"></div>
+
+</header>
+     
+
+
+
+  <section class="banner-regras">
+       
+  <a href="index.html" class="botao-home-f1">
+    <img src="logos/F1-logo.png" class="botao-home-f1" alt="logo-f1">
+</a>
+  
+    <img src="logos/F1-logo.png" alt="F1 Logo" class="logo-f1">
+    
+    <div class="conteudo-banner-regras">
+        <h1>REGRAS DA F1</h1>
+    </div>
+    
+</section>
+
+
+
+<section class="calendario-f1" id="calendario">
+
+<h2 class="titulo-calendario">Fim de Semana de F1</h2>
+
+<div class="grid-semana">
+
+
+<div class="dia">S</div>
+<div class="dia">T</div>
+<div class="dia">Q</div>
+
+<div class="dia evento" onclick="abrirDia(0)">
+  Quinta <small>Press</small>
+</div>
+
+<div class="dia evento" onclick="abrirDia(1)">
+  Sexta<small>TL</small>
+</div>
+
+<div class="dia evento" onclick="abrirDia(2)">
+  Sabado <small>Qualy</small>
+</div>
+
+<div class="dia evento" onclick="abrirDia(3)">
+  Domingo <small>Race</small>
+</div>
+
+</div>
+
+<!-- HUD -->
+<div class="hud-f1" id="cardDia">
+
+  <div class="scan-line"></div>
+
+  <h2 id="tituloDia"></h2>
+  <p id="textoDia"></p>
+
+  <div class="telemetria">
+
+    <div class="barra-box">
+      <span>Performance</span>
+      <div class="barra"><div id="bar1"></div></div>
+    </div>
+
+    <div class="barra-box">
+      <span>Estratégia</span>
+      <div class="barra"><div id="bar2"></div></div>
+    </div>
+
+    <div class="barra-box">
+      <span>Pressão</span>
+      <div class="barra"><div id="bar3"></div></div>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<div class="qualy-container" id="quali">
+
+  <!-- LATERAL -->
+  <div class="qualy-menu">
+    <button onclick="mostrarQualy(1)">Q1</button>
+    <button onclick="mostrarQualy(2)">Q2</button>
+    <button onclick="mostrarQualy(3)">Q3</button>
+  </div>
+
+  <!-- CENTRO -->
+  <div class="qualy-grid">
+
+    <h2 id="titulo-qualy">Q1</h2>
+    <p id="explicacao-qualy"></p>
+<h2 class="titulo-qualy-secao">Classificação</h2>
+    <div class="tabela-qualy" id="listaPilotosQualy"></div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<section class="pontuacao-f1" id="pontos">
+
+<h2 class="titulo-pontuacao">Sistema de Pontuação</h2>
+
+<div class="switch-pontuacao">
+  <button class="btn-pontuacao ativo" onclick="trocarPontuacao('corrida', event)">Corrida</button>
+  <button class="btn-pontuacao" onclick="trocarPontuacao('sprint', event)">Sprint</button>
+</div>
+
+<div class="telemetria-pontuacao" id="telemetria-pontuacao"></div>
+
+</section>
+
+
+
+<section class="pneus-f1" id="pneus">
+
+<!-- =========================
+     TÍTULO
+========================= -->
+<h2 class="titulo-pneus">Estratégia de Pneus</h2>
+
+<!-- =========================
+     CLIMA
+========================= -->
+<div class="clima">
+  <button onclick="mudarClima('seco')" class="ativo">☀️ Seco</button>
+  <button onclick="mudarClima('chuva')">🌧️ Chuva</button>
+</div>
+
+<!-- =========================
+     SELETOR DE PNEUS
+========================= -->
+<div class="seletor-pneus">
+  <div class="pneu" onclick="selecionarPneu(0)">Soft</div>
+  <div class="pneu" onclick="selecionarPneu(1)">Medium</div>
+  <div class="pneu" onclick="selecionarPneu(2)">Hard</div>
+  <div class="pneu" onclick="selecionarPneu(3)">Inter</div>
+  <div class="pneu" onclick="selecionarPneu(4)">Wet</div>
+</div>
+
+<!-- =========================
+     CARD PRINCIPAL
+========================= -->
+<div class="info-pneu">
+
+  <img id="imgPrincipal" class="img-pneu" src="" alt="Pneu">
+
+  <h3 id="nomePrincipal">Selecione um pneu</h3>
+  <p id="descPrincipal">Clique em um composto para ver detalhes</p>
+
+  <!-- STATS -->
+  <div class="stats-pneu">
+
+    <div class="stat">
+      <span>Grip</span>
+      <div class="barra"><div id="statGrip"></div></div>
+    </div>
+
+    <div class="stat">
+      <span>Durabilidade</span>
+      <div class="barra"><div id="statDur"></div></div>
+    </div>
+
+    <div class="stat">
+      <span>Velocidade</span>
+      <div class="barra"><div id="statVel"></div></div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     DESGASTE
+========================= -->
+<div class="desgaste-box">
+
+  <button onclick="simularDesgaste()">Simular Stint</button>
+
+  <div class="barra-desgaste">
+    <div id="desgaste"></div>
+  </div>
+
+  <p id="textoDesgaste"></p>
+
+</div>
+
+<!-- =========================
+     COMPARADOR
+========================= -->
+<div class="comparador-pneus">
+
+<h2>Comparar Pneus</h2>
+
+<div class="cards-comparar">
+
+  <!-- CARD 1 -->
+  <div class="card-comp" onclick="abrirSelecao(0)">
+    <p class="placeholder">Selecionar Pneu</p>
+    <img id="imgComp0">
+    <h3 id="nomeComp0"></h3>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card-comp" onclick="abrirSelecao(1)">
+    <p class="placeholder">Selecionar Pneu</p>
+    <img id="imgComp1">
+    <h3 id="nomeComp1"></h3>
+  </div>
+
+</div>
+
+<!-- STATS COMPARAÇÃO -->
+<div class="stats-comparacao">
+
+  <div class="linha">
+    <span>Grip</span>
+    <div class="barra"><div id="compGrip1"></div></div>
+    <div class="barra"><div id="compGrip2"></div></div>
+  </div>
+
+  <div class="linha">
+    <span>Durabilidade</span>
+    <div class="barra"><div id="compDur1"></div></div>
+    <div class="barra"><div id="compDur2"></div></div>
+  </div>
+
+  <div class="linha">
+    <span>Velocidade</span>
+    <div class="barra"><div id="compVel1"></div></div>
+    <div class="barra"><div id="compVel2"></div></div>
+  </div>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+<!-- TABELA CALENDARIO -->
+<section class="calendario-f1" id="temporada">
+     
+<div class="tabela-calendario-wrapper">
+
+     
+  <table class="tabela-calendario">
+    <tr>
+      <th>Round</th>
+      <th>GP</th>
+      <th>Circuito</th>
+      <th>Local</th>
+      <th>País</th>
+      <th>Data</th>
+      <th>Horário</th>
+    </tr>
+
+    <tr onclick="abrirDashboard('australia')">
+      <td>1</td>
+      <td>GP da Austrália</td>
+      <td>Albert Park</td>
+      <td>Melbourne</td>
+      <td>Austrália</td>
+      <td>06-08/03/2026</td>
+      <td>01:00</td>
+    </tr>
+    
+    <tr onclick="abrirDashboard('china')">
+      <td>2</td>
+      <td>GP da China</td>
+      <td>Circuito de Xangai</td>
+      <td>China</td>
+      <td>Shanghai</td>
+      <td>13-15/03/2026</td>
+      <td>04:00</td>
+    </tr>
+    
+    <tr onclick="abrirDashboard('japao')">
+    	    <td>3</td>
+      <td>GP do Japão</td>
+	  <td>Circuito de Suzuka</td>
+	  <td>Japão</td>
+      <td>Suzuka</td>
+      <td>27-29/03/2026</td>
+      <td>02:00</td>
+    </tr>
+    
+       <tr onclick="abrirDashboard('bahrein')">
+     <td>4</td>
+     <td>GP Bahrein</td>
+ <td>Circuito do Bahrein</td>
+       <td>Bahrein</td>
+  <td>Sakhir</td>
+  <td>10-12/04/2026</td>
+  <td>10:00</td>
+</tr>
+
+  
+       <tr onclick="abrirDashboard('arabia')">
+      <td>5</td>
+      <td>GP da Arábia Saudita</td>
+	  <td>Circuito Corniche de Gidé</td>
+      <td>Arábia Saudita</td>
+	   <td>Jeddah</td>
+      <td>17-19/04/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+       <tr onclick="abrirDashboard('miami')">
+	    <td>6</td>
+      <td>GP de Miami</td>
+	  <td>Autromodo de MIami</td>
+      <td>EUA</td>
+	   <td>Miami</td>
+      <td>01-03/05/2026</td>
+      <td>17:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('canada')">
+	  <td>7</td>
+      <td>GP do Canada</td>
+	  <td>Circuito Gilles Villeneuve</td>
+      <td>Canada</td>
+	   <td>Montreal</td>
+      <td>22-24/05/2026</td>
+      <td>15:00</td>
+    </tr>
+    
+      <tr onclick="abrirDashboard('monaco')">
+      <td>8</td>
+      <td>GP de Mônaco</td>
+      <td>Monte Carlo</td>
+       <td>Mônaco</td>
+      <td>Mônaco</td>
+      <td>05-07/06/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+    
+	   <tr onclick="abrirDashboard('espanha')">
+<td>9</td>
+      <td>GP da Espanha</td>
+	   <td>Circuito de Barcelona-Catalunha</td>
+      <td>Espanha</td>
+	   <td>Barcelona</td>
+      <td>12-14/06/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('austria')">
+   <td>10</td>
+      <td>GP da Austria</td>
+	   <td>Red bull Ring</td>
+      <td>Austria</td>
+	   <td>Spilberg</td>
+      <td>26-28/06/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('silverstone')">
+   <td>11</td>
+      <td>GP da Grã-Bretanha</td>
+	   <td>Circuito de Silverstone</td>
+      <td>Inglaterra</td>
+	   <td>Silverstone</td>
+      <td>03-05/07/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('spa')">
+   <td>12</td>
+      <td>GP da Belgica</td>
+	   <td>Circuito de SPA-Francoshamps</td>
+      <td>Belgica</td>
+	   <td>Ardenas</td>
+      <td>17-19/07/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('hungria')">
+   <td>13</td>
+      <td>GP da Hungria</td>
+	   <td>Hugaroring</td>
+      <td>Hungria</td>
+	   <td>Budapest</td>
+      <td>24-26/07/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('holanda')">
+   <td>14</td>
+      <td>GP da Holanda</td>
+	   <td>Circuito de Zandvoort</td>
+      <td>Paises Baixos</td>
+	   <td>Zandvoort</td>
+      <td>21-23/08/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('monza')">
+   <td>15</td>
+      <td>GP da Italia</td>
+	   <td>Autromodo de Monza</td>
+      <td>Italia</td>
+	   <td>Monza</td>
+      <td>04-06/09/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('madrid')">
+   <td>16</td>
+      <td>GP da Espanha</td>
+	   <td>Circuito de Madrid</td>
+      <td>Espanha</td>
+	   <td>Madrid</td>
+      <td>11-13/09/2026</td>
+      <td>10:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('baku')">
+   <td>17</td>
+      <td>GP do Azerbaijão</td>
+	   <td>Circuito de Baku</td>
+      <td>Azerbaijão</td>
+	   <td>Baku</td>
+      <td>24-26/10/2026</td>
+      <td>08:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('singapura')">
+   <td>18</td>
+      <td>GP de Singapura</td>
+	   <td>Circuito de Marina Bay</td>
+      <td>Singapura</td>
+	   <td>Marina Bay</td>
+      <td>09-11/10/2026</td>
+      <td>09:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('texas')">
+   <td>19</td>
+      <td>GP dos Estados Unidos</td>
+	   <td>Circuito das Américas</td>
+      <td>EUA</td>
+	   <td>Austin</td>
+      <td>23-25/10/2026</td>
+      <td>16:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('mexico')">
+   <td>20</td>
+      <td>GP do Mexico</td>
+	   <td>Autodromo Hermanos Rodriguez</td>
+      <td>Mexico</td>
+	   <td>Mexico City</td>
+      <td>30-01/11/2026</td>
+      <td>17:00</td>
+    </tr>
+	
+
+
+       <tr onclick="abrirDashboard('brasil')">
+      <td>21</td>
+      <td>GP de São Paulo</td>
+      <td>Autodromo de Interlagos</td>
+      <td>Brasil</td>
+      <td>Interlagos</td>
+      <td>06-08/11/2026</td>
+      <td>14:00</td>
+      </tr>
+      
+       <tr onclick="abrirDashboard('vegas')">
+      <td>22</td>
+      <td>GP de Las Vegas</td>
+	   <td>Circuito de Las Vegas</td>
+      <td>EUA</td>
+	   <td>Las Vegas</td>
+      <td>19-21/11/2026</td>
+      <td>01:00</td>
+    </tr>
+    
+	   <tr onclick="abrirDashboard('qatar')">
+   <td>23</td>
+      <td>GP do Qatar</td>
+	   <td>Circuito de Lusail</td>
+      <td>Qatar</td>
+	   <td>Lusail</td>
+      <td>27-29/11/2026</td>
+      <td>14:00</td>
+    </tr>
+    
+       <tr onclick="abrirDashboard('abudhabi')">
+      <td>24</td>
+      <td>GP de Abu Dhabi</td>
+      <td>Circuito de Yas</td>
+      <td>Abu Dhabi</td>
+      <td>Yas Marina</td>
+      <td>04-06/12/2026</td>
+      <td>10:00</td>
+      </tr>
+  </table>
+  </div>
+</section>
+
+<div id="dashboard">
+
+  <div class="dashboard-container">
+
+    <h1 id="tituloGP"></h1>
+
+    <div id="listaPilotos"></div>
+
+    <button class="fechar-btn" onclick="fecharDashboard()">
+      FECHAR
+    </button>
+
+  </div>
+
+</div>
+  
+
+<div class="secao-bandeiras" id="bandeira">
+
+  <h2 class="titulo-bandeiras">Bandeiras da F1</h2>
+
+  <div class="slider-bandeiras">
+    <div class="bandeiras-focus">
+
+      <div class="card-focus ativo verde">
+        <img src="bandeiras/GREEN.jpg">
+        <div class="overlay-info">
+          <h3>Bandeira Verde</h3>
+          <p>Pista livre, corrida normal</p>
+        </div>
+      </div>
+
+      <div class="card-focus amarela">
+        <img src="bandeiras/YELLOW.jpg">
+        <div class="overlay-info">
+          <h3>Bandeira Amarela</h3>
+          <p>Perigo na pista</p>
+        </div>
+      </div>
+
+      <div class="card-focus vermelha">
+        <img src="bandeiras/RED.jpg">
+        <div class="overlay-info">
+          <h3>Bandeira Vermelha</h3>
+          <p>Corrida interrompida</p>
+        </div>
+      </div>
+
+      <div class="card-focus azul">
+        <img src="bandeiras/BLUE.jpg">
+        <div class="overlay-info">
+          <h3>Bandeira Azul</h3>
+          <p>Dê passagem</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="pista-sc" id="sc">
+
+  <div class="linha-pista"></div>
+
+  <!-- Safety Car -->
+  <img src="Safety/safety.png" class="safety-car">
+
+
+<div class="info-corrida">
+  <h3 class="titulo-info">CORRIDA NORMAL</h3>
+  <p class="texto-info">
+    Os carros estão em ritmo total de corrida, disputando posições livremente.
+  </p>
+</div>
+
+  <!-- Carros -->
+  <div class="carro carro1">
+    <img src="safety/w17.png">
+   
+  </div>
+
+  <div class="carro carro2">
+    <img src="safety/sf26.png">
+   
+  </div>
+  
+    <div class="carro carro3">
+    <img src="safety/mcl40.png">
+   
+  </div>
+
+  <div class="carro carro4">
+    <img src="safety/rb19.png">
+  
+  </div>
+  <!-- Aviso -->
+ <div class="aviso-sc">
+  <span class="badge-sc">SC</span>
+  SAFETY CAR DEPLOYED
+</div>
+
+<div class="aviso-vsc">
+  <span class="badge-vsc">VSC</span>
+  VIRTUAL SAFETY CAR
+</div>
+   
+<div class="hud-velocidade">
+
+  <div class="velocimetro">
+    <div class="barra-velocidade"></div>
+  </div>
+
+  <div class="vel-numero">320 km/h</div>
+
+</div>
+   
+   
+</div>
+
+<div class="pista-sc">
+
+
+ <div class="area-corrida">
+
+
+
+<div class="penalidades-container" id="penalti">
+
+  <!-- 🚨 BANNER TOPO -->
+ <div class="fia-banner">
+  <img src="fia.png" class="fia-logo">
+  <span class="fia-texto"></span>
+</div>
+
+  <!-- 📄 INFO PRINCIPAL -->
+  <div class="fia-info"></div>
+
+  
+
+  <!-- 🧩 GRID -->
+  <div class="pen-grid">
+
+    <div class="pen-card"
+    data-tipo="+5s"
+    data-piloto="Lando Norris"
+    data-numero="1">
+      <h3>+5s</h3>
+      </div>
+      
+      
+      
+    <div class="pen-card" 
+    data-tipo="+10s"
+      data-piloto="Lando Norris"
+    data-numero="1">
+      <h3>+10s</h3>
+      </div>
+      
+    <div class="pen-card"
+    data-tipo="DRIVE THROUGH"
+      data-piloto="Lando Norris"
+    data-numero="1">
+      <h3>Drive Through</h3>
+      </div>
+      
+    <div class="pen-card"
+    data-tipo="STOP & GO"
+      data-piloto="Lando Norris"
+     data-numero="1">
+      <h3>Stop & Go</h3>
+      </div>
+      
+    <div class="pen-card" 
+    data-tipo="GRID PENALTY"
+      data-piloto="Lando Norris"
+    data-numero="1">
+      <h3>Grid Penalty</h3>
+      </div>
+      
+    <div class="pen-card" 
+    data-tipo="DSQ"
+      data-piloto="Lando Norris"
+    data-numero="1">
+      <h3>DSQ</h3>
+      </div>
+
+  </div>
+
+</div>
+
+ 
+ </div> <!-- pen-grid -->
+</div> 
+
+</div> <!-- area-corrida -->
+</div> <!-- pista-sc -->
+
+<footer class="footer-f1-f1">
+
+  <div class="footer-brand-f1">
+    <p>F1</p>
+    <span>Formula One</span>
+  </div>
+
+  <div class="footer-links-f1">
+    <a href="index.html">Home</a>
+    <a href="f1.html">Regras</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <div class="footer-social-f1">
+
+    <a 
+      href="https://www.instagram.com/eduardo_antonioxl11?igsh=dnNwM29qYXprbnI4" 
+      target="_blank"
+    >
+      Instagram
+    </a>
+
+    <a 
+      href="https://x.com/Duducrvg1998" 
+      target="_blank"
+    >
+      X
+    </a>
+
+  </div>
+
+  <div class="footer-copy-f1">
+    © 2026 Fan Project • Inspired by Formula 1
+  </div>
+
+</footer>
+ 
+ 
+ 
+ 
+<script src="f1.js"></script>
+ </body>
+ </html>
+ 
+ 
+
+ 
+
